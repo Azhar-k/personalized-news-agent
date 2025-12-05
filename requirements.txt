@@ -2,3 +2,5 @@ crewai[google-genai]
 crewai-tools
 python-dotenv
 litellm
+duckduckgo-search
+langchain-community

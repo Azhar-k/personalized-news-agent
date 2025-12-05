@@ -1,6 +1,91 @@
-greeting_task:
-  description: |
-    Write a single sentence that combines the phrase "Hello World" with a fun, 
-    positive twist.
-  expected_output: A single, creative sentence containing the phrase "Hello World!"
-  agent: greeter # This must match the key in agents.yaml
+find_headlines_task:
+  description: >
+    Research the web for the 10 most important and recent headlines related to the topic: {topic}.
+    Focus on news from the last 24 hours only.
+    Use web search to find headlines from credible news sources.
+    
+    Requirements:
+    - Find exactly 10 headlines
+    - All headlines must be from the last 24 hours
+    - Prioritize headlines from reputable news organizations
+    - Include the source name and publication time for each headline
+    - Ensure headlines are directly related to the topic
+  expected_output: >
+    A numbered list of 10 headlines with the following format for each:
+    1. [Headline Text] - Source: [News Source] - Time: [Publication Time]
+    2. [Headline Text] - Source: [News Source] - Time: [Publication Time]
+    ...and so on
+  agent: headline_finder
+
+research_headline_task:
+  description: >
+    Research detailed information about this headline: {headline}
+    
+    Search the web for comprehensive coverage from multiple credible news sources.
+    Focus on famous news channels like BBC, CNN, Reuters, AP, The Guardian, NYT, etc.
+    If available, prioritize sources from {native_state} for local perspective.
+    
+    Requirements:
+    - Gather information from at least 3-5 different credible sources
+    - Verify facts across multiple sources
+    - Include different perspectives and details
+    - Note any local/regional angles from {native_state} if available
+    - Synthesize the information into a concise summary
+  expected_output: >
+    A concise summary (200-300 words) that includes:
+    - Main facts and details about the headline
+    - Key points from different sources
+    - Any local perspective from {native_state} if available
+    - List of sources consulted
+  agent: ground_level_reporter
+  context:
+    - find_headlines_task
+
+compile_news_report_task:
+  description: >
+    Create a comprehensive personalized news report for the user.
+    
+    Topic of Interest: {topic}
+    User's Native State: {native_state}
+    
+    Coordinate the following:
+    1. Use the headline_finder to get the 10 most important recent headlines about {topic}
+    2. For each headline, use the ground_level_reporter to research and create detailed summaries
+    3. Compile all the information into a well-organized final news report
+    
+    The report should:
+    - Start with an executive summary
+    - Present each headline with its detailed research
+    - Highlight any local angles relevant to {native_state}
+    - Be well-structured and easy to read
+    - Include timestamps and sources
+  expected_output: >
+    A comprehensive news report with the following structure:
+    
+    # Personalized News Report: {topic}
+    ## For: {native_state} Region
+    ## Date: [Current Date]
+    
+    ### Executive Summary
+    [Brief overview of the top stories]
+    
+    ### Detailed Coverage
+    
+    #### Story 1: [Headline]
+    [Detailed summary from research]
+    Sources: [List of sources]
+    
+    #### Story 2: [Headline]
+    [Detailed summary from research]
+    Sources: [List of sources]
+    
+    [Continue for all 10 headlines]
+    
+    ### Conclusion
+    [Brief wrap-up of key themes and developments]
+  agent: news_manager
+  context:
+    - find_headlines_task
+    - research_headline_task
+
+# Made with Bob
