@@ -1,0 +1,6 @@
+greeting_task:
+  description: |
+    Write a single sentence that combines the phrase "Hello World" with a fun, 
+    positive twist.
+  expected_output: A single, creative sentence containing the phrase "Hello World!"
+  agent: greeter # This must match the key in agents.yaml
