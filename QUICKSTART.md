@@ -41,7 +41,7 @@ Enter your native state/region: California
 ```
 
 The app will:
-1. ✅ Find 10 recent headlines about AI
+1. ✅ Find 2 recent headlines about AI
 2. ✅ Research each headline from multiple sources
 3. ✅ Create a comprehensive report with local context
 4. ✅ Save the report to a file
@@ -62,7 +62,7 @@ You'll get:
 
 For more accurate search, get a free Serper API key:
 
-1. Sign up at: https://serper.dev (100 free searches/month)
+1. Sign up at: https://serper.dev (20 free searches/month)
 2. Add to `.env`:
    ```
    SERPER_API_KEY=your_serper_key_here

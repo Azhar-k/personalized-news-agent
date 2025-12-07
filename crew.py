@@ -11,7 +11,7 @@ if not os.getenv("GEMINI_API_KEY"):
     exit()
 
 # --- 1. Configure the Gemini LLM ---
-gemini_llm = "gemini/gemini-2.5-flash-lite"
+gemini_llm = os.getenv("GEMINI_MODEL", "gemini/gemini-2.5-flash-lite")
 
 # --- 2. Initialize Search Tools ---
 # Note: SerperDevTool requires SERPER_API_KEY in .env

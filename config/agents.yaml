@@ -1,7 +1,7 @@
 headline_finder:
   role: Headline Research Specialist
   goal: >
-    Research and identify the 10 most important and recent headlines 
+    Research and identify the 2 most important and recent headlines 
     related to a given topic from the last 24 hours.
   backstory: |
     You are an expert news researcher with a keen eye for identifying 

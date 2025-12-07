@@ -8,9 +8,9 @@ A complete AI-powered personalized news aggregation system with three specialize
 
 ### 1. Headline Finder Agent
 - **Role**: Headline Research Specialist
-- **Responsibility**: Searches the web for the 10 most important headlines on a given topic from the last 24 hours
+- **Responsibility**: Searches the web for the 2 most important headlines on a given topic from the last 24 hours
 - **Tools**: Web search (Serper or DuckDuckGo)
-- **Output**: List of 10 recent headlines with sources and timestamps
+- **Output**: List of 2 recent headlines with sources and timestamps
 
 ### 2. Ground Level Reporter Agent
 - **Role**: Investigative News Reporter
@@ -83,7 +83,7 @@ User Input
 News Manager Agent (Coordinator)
     ↓
 Headline Finder Agent
-    → Searches web for 10 recent headlines
+    → Searches web for 2 recent headlines
     ↓
 Ground Level Reporter Agent (for each headline)
     → Researches from multiple sources
@@ -103,7 +103,7 @@ Final Report (Console + Text File)
 The system generates a comprehensive report with:
 
 1. **Executive Summary**: Overview of top stories
-2. **Detailed Coverage**: 10 stories with:
+2. **Detailed Coverage**: 2 stories with:
    - Headline
    - Detailed research summary (200-300 words)
    - Multiple source citations

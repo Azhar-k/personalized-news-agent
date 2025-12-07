@@ -1,17 +1,17 @@
 find_headlines_task:
   description: >
-    Research the web for the 10 most important and recent headlines related to the topic: {topic}.
+    Research the web for the 2 most important and recent headlines related to the topic: {topic}.
     Focus on news from the last 24 hours only.
     Use web search to find headlines from credible news sources.
     
     Requirements:
-    - Find exactly 10 headlines
+    - Find exactly 2 headlines
     - All headlines must be from the last 24 hours
     - Prioritize headlines from reputable news organizations
     - Include the source name and publication time for each headline
     - Ensure headlines are directly related to the topic
   expected_output: >
-    A numbered list of 10 headlines with the following format for each:
+    A numbered list of 2 headlines with the following format for each:
     1. [Headline Text] - Source: [News Source] - Time: [Publication Time]
     2. [Headline Text] - Source: [News Source] - Time: [Publication Time]
     ...and so on
@@ -49,7 +49,7 @@ compile_news_report_task:
     User's Native State: {native_state}
     
     Coordinate the following:
-    1. Use the headline_finder to get the 10 most important recent headlines about {topic}
+    1. Use the headline_finder to get the 2 most important recent headlines about {topic}
     2. For each headline, use the ground_level_reporter to research and create detailed summaries
     3. Compile all the information into a well-organized final news report
     
@@ -79,7 +79,7 @@ compile_news_report_task:
     [Detailed summary from research]
     Sources: [List of sources]
     
-    [Continue for all 10 headlines]
+    [Continue for all 2 headlines]
     
     ### Conclusion
     [Brief wrap-up of key themes and developments]

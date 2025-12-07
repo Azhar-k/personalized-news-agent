@@ -7,7 +7,7 @@ A sophisticated AI-powered news aggregation system built with CrewAI and Google 
 ### Three Specialized AI Agents:
 
 1. **Headline Finder Agent** 🔍
-   - Searches the web for the 10 most important headlines on your chosen topic
+   - Searches the web for the 2 most important headlines on your chosen topic
    - Focuses on news from the last 24 hours
    - Prioritizes credible news sources
 
@@ -75,7 +75,7 @@ Enter your native state/region: California
 ```
 
 The system will:
-1. Find the 10 most recent and important headlines about your topic
+1. Find the 2 most recent and important headlines about your topic
 2. Research each headline in detail from multiple credible sources
 3. Compile a comprehensive news report with local context
 4. Save the report to a text file
@@ -153,7 +153,7 @@ The application generates:
 [Detailed research and summary]
 Sources: [List of sources]
 
-[... continues for all 10 headlines ...]
+[... continues for all 2 headlines ...]
 
 ### Conclusion
 [Key themes and developments]
