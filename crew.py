@@ -11,7 +11,7 @@ if not os.getenv("GEMINI_API_KEY"):
     exit()
 
 # --- 1. Configure the Gemini LLM ---
-gemini_llm = "gemini/gemini-2.0-flash-lite"
+gemini_llm = "gemini/gemini-2.5-flash-lite"
 
 # --- 2. Initialize Search Tools ---
 # Note: SerperDevTool requires SERPER_API_KEY in .env
@@ -71,24 +71,30 @@ class NewsAgencyCrew:
     @task
     def find_headlines_task(self) -> Task:
         """Task to find the latest headlines"""
+        config = self.tasks_config['find_headlines_task'].copy()
+        config.pop('agent', None)
         return Task(
-            **self.tasks_config['find_headlines_task'],
+            **config,
             agent=self.headline_finder()
         )
     
     @task
     def research_headline_task(self) -> Task:
         """Task to research detailed information about a headline"""
+        config = self.tasks_config['research_headline_task'].copy()
+        config.pop('agent', None)
         return Task(
-            **self.tasks_config['research_headline_task'],
+            **config,
             agent=self.ground_level_reporter()
         )
     
     @task
     def compile_news_report_task(self) -> Task:
         """Task to compile the final news report"""
+        config = self.tasks_config['compile_news_report_task'].copy()
+        config.pop('agent', None)
         return Task(
-            **self.tasks_config['compile_news_report_task'],
+            **config,
             agent=self.news_manager()
         )
 
@@ -162,9 +168,6 @@ if __name__ == "__main__":
         
     except Exception as e:
         print(f"\n❌ Error generating news report: {str(e)}")
-        print("\nTroubleshooting tips:")
-        print("1. Make sure you have installed all requirements: pip install -r requirements.txt")
-        print("2. Check that your GEMINI_API_KEY is set in the .env file")
-        print("3. For SerperDevTool, you need SERPER_API_KEY (or it will fallback to DuckDuckGo)")
+        print(e)
 
 # Made with Bob

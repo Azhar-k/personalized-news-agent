@@ -46,7 +46,7 @@ def run_news_report(topic: str, native_state: str):
         
         return result
         
-    except Exception as e:
+    except Exception as e:  
         print(f"\n❌ Error: {str(e)}")
         return None
 
